@@ -3,7 +3,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title> {{ page.title }}{% if page.title %} | {% endif %} i3D 2017</title>
+  <title>{% if page.title %}{{ page.title }} | {% endif %}I3D {{ page.year }}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
   <!-- <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}"> -->
@@ -21,21 +21,20 @@
   <link href="css/i3d.css" rel="stylesheet" media="screen">
   <link href="css/iframes.css" rel="stylesheet" media="screen">
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
   <!-- comment out viewport/responsive.css to use a fixed layout -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/responsive.css" rel="stylesheet" media="screen">
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script>
-      $(function () {
-        // Set the active button based on the current url.
-        var filename = window.location.pathname.split('/').reverse()[0];
-        $('a[href$="' + filename + '"]').parent().addClass('active');
-        // If there are no objects with the active class,
-        if ($('.active').length == 0) {
-          // assume the index is the current url.
-          $('a[href$="index.html"]').parent().addClass('active');
-        }
-      });
-  </script>
+  <!-- SEO metadata for social posts -->
+  <meta property="og:url"                content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta property="og:title"              content="{% if page.title %}{{ page.title }} | {% endif %}I3D {{ page.year }}" />
+  <meta property="og:description"        content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+  <meta property="og:image"              content="{{ page.dir | append: 'img/banner.png' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta name="twitter:card" content="summary"></meta>
+  <meta name="twitter:image"              content="{{ page.dir | append: 'img/banner.png' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta name="twitter:site" content="@I3DCONF"></meta>
+
+  <!-- Nav highlight -->
 </head>

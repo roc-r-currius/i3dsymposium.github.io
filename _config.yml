@@ -17,6 +17,68 @@ defaults:
   -
     scope:
       path: "" # an empty string here means all files in the project
-      type: "posts" # previously `post` in Jekyll 2.2.
+      type: "pages" # previously `post` in Jekyll 2.2.
     values:
       layout: "default"
+  -
+    scope:
+      path: "2023"
+    values:
+      year: 2023
+      date_and_location: "Online: some time 2023"
+      nav:
+        - title: Home
+          link: index.html
+        - title: Awards
+          link: awards.html
+        - title: Program
+          link: program.html
+        - title: Keynotes
+          link: keynotes.html
+        - title: Call for Participation
+          link: cfp.html
+        - title: Papers
+          link: papers.html
+        - title: Posters &amp; Demos
+          link: posters.html
+        - title: Registration
+          link: registration.html
+        - title: Travel Grants
+          link: travel_grants.html
+        - title: Venue
+          link: venue.html
+        - title: Corporate Sponsors
+          link: sponsors.html
+        - title: Past Conferences
+          link: conference.html
+        - title: Committee
+          link: committee.html
+        - title: Contact Us
+          link: contact.html
+        - title: Code of Conduct
+          link: http://www.acm.org/sigs/volunteer_resources/officers_manual/anti-harassment-policy
+
+      important_dates:
+        - title: Paper submissions open
+          date: Friday, October 7, 2016
+          past: true
+        - title: Paper submission deadline
+          date: Friday, October 28, 2016 (23:59 UTC/GMT - 4:59pm Pacific Time)
+          past: true
+        - title: Paper notification
+          date: Tuesday, December 6, 2016
+          past: true
+        - title: Camera-ready version of papers
+          date: Friday, December 16, 2016
+          past: true
+        - title: Poster and demo submissions
+          date: Friday, December 16, 2016
+          past: true
+        - title: Poster and demo notification
+          date: TBA
+        - title: Early registration deadline
+          date: TBA
+        - title: Hotel booking deadline
+          date: TBA
+        - title: <b>Conference</b>
+          date: <b>Fri, Feb 24 - Sun, Feb 26, 2017</b>
