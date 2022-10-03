@@ -1,0 +1,171 @@
+---
+layout: default2022
+title: Program schedule
+iana_timezone: "US/Pacific"
+timezone: "UTC-07:00"
+timezone_name: "PT"
+program:
+    - day: 2022-05-03
+      video: https://www.youtube.com/watch?v=b32NYgVVKKc
+      times: 
+        - time: "9:00"
+          title: Opening Session
+        - time: "9:10"
+          title: Posters Fast Forward
+          link: posters.html
+        - time: "9:15"
+          title: "Keynote 1: Anton Kaplanyan, Intel"
+          link: keynotes.html#Keynote1
+        - time: "10:00"
+          notes: break
+        - time: "10:10"
+          title: "Papers 1: Real-time Rendering"
+          link: papers.html#Papers1
+          chair: Marco Salvi
+        - time: "11:25"
+          notes: break
+        - time: "11:35"
+          title: "Papers 2: Simulation and Animation"
+          link: papers.html#Papers2
+          chair: Christiaan Gribble
+        - time: "12:50"
+          notes: break
+        - time: "13:00"
+          title: "Keynote 2: Johan Andersson, Embark Studios"
+          cancelled: true
+        - time: "13:00"
+          title: Town Hall
+          notes: (live presentation only)
+          registered_only: true
+        - time: "13:30"
+          title: "Social Event: Virtual meet-up"
+          link: "#social"
+          registered_only: true
+    - day: 2022-05-04
+      video: https://www.youtube.com/watch?v=qQYTLm-WVT4
+      times: 
+        - time: "9:00"
+          title: "Keynote 2: Margaret S. Livingstone, Harvard Medical School"
+          link: keynotes.html#Keynote3
+          notes: (live presentation only)
+        - time: "9:45"
+          notes: "break"
+        - time: "9:55"
+          title: "Papers 3: Games and VR"
+          link: "papers.html#Papers3"
+          chair: "Qi Sun"
+        - time: "11:10"
+          notes: "break"
+        - time: "11:20"
+          title: "Papers 4: Geometry"
+          link: "papers.html#Papers4"
+          chair: "Markus Billeter"
+        - time: "12:20"
+          notes: "break"
+        - time: "12:45"
+          title: "Posters and demos session"
+          link: "posters.html"
+          chair: "Petrik Clarberg"
+          registered_only: true
+        - time: "13:45"
+          title: "Social Event: Virtual meet-up"
+          link: "#social"
+          registered_only: true
+    - day: 2022-05-05
+      video: https://www.youtube.com/watch?v=P-wRgPe8sDs
+      times: 
+        - time: "9:00"
+          title: "Keynote 3: Morgan McGuire, Roblox"
+          link: "keynotes.html#Keynote4"
+        - time: "9:45"
+          notes: "break"
+        - time: "9:55"
+          title: "Papers 5: Image-based Algorithms"
+          link: "papers.html#Papers5"
+          chair: "Leonardo Scandolo"
+        - time: "11:10"
+          notes: "break"
+        - time: "11:20"
+          title: "Papers 6: Appearance and Shading"
+          link: "papers.html#Papers6"
+          chair: "Adrien Gruson"
+        - time: "12:35"
+          notes: "break"
+        - time: "12:45"
+          title: "Papers 7: Virtual Humans"
+          link: "papers.html#Papers7"
+          chair: "Michal Iwanicki"
+        - time: "14:00"
+          title: "Closing and Awards"
+        - time: "14:15"
+          title: "Social Event: Virtual meet-up"
+          link: "#social"
+          registered_only: true
+---
+
+<h3>Program</h3> 
+<P>
+The virtual conference runs Tuesday May 3 through Thursday May 5. You can <a href="https://www.youtube.com/c/I3DSymposium">view the sessions</a> and access the <a href="papers.html">papers</a> and <a href="posters.html">posters</a>.
+
+The conference will be streamed at the <a href="https://www.youtube.com/c/I3DSymposium">I3D YouTube channel</a>. All times are United States Pacific Time ({{ page.timezone_name }}, or {{ page.timezone }}). See <a href="./attend.html">Register and Attend</a> for more information.
+</P>
+
+
+{% for day in page.program %}
+<div class="program">
+    <h4 class="program-day">{{ day.day | date: "%A, %e of %B %Y" }}{% if day.video %}&nbsp;<a href="{{ day.video }}" target="_blank"><img src="img/youtube-link-logo.png" width="40px" style="vertical-align: text-bottom;" alt="YouTube stream for Day {{ forloop.index }}"></a>{% endif %}</h4>
+
+    <h3><span class="time" data-day="{{ day.day }}">{{ day.times.first.time }}</span> to <span class="time" data-day="{{ day.day }}">{{ day.times.last.time }}</span> {{ page.timezone_name }}</h3>
+    <table class="times">
+        {% for time in day.times %}
+        <tr>
+            <td class="time" data-day="{{ day.day }}" valign="top" {% if time.cancelled %}style="text-decoration:line-through;"{% endif %}>{{ time.time }}</td>
+            <td class="item">
+                {% if time.cancelled %}CANCELLED:&nbsp;{% endif %}
+                {% if time.link %}<a href="{{ time.link }}">{{ time.title }}</a>{% else %}{{ time.title }}{% endif %}
+                {% if time.registered_only %}&nbsp;- <a href="attend.html">registration required</a>{% endif %}
+                {% if time.notes %}&nbsp;<i>{{ time.notes }}</i>{% endif %}
+                {% if time.chair %}
+                    <br>Session chair: {{ time.chair }}
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endfor %}
+
+
+
+<div id="social">
+<h3>Social Events</h3>
+<P>
+  We'll use <a href="https://gather.town/">Gather</a> for virtual meet-ups. More on how to <a href="./attend.html">Register and Attend here</a>.
+
+<!---
+  To attend social events you need to <a href="attend.html">register</a>. You will also want to pre-load and set up (free!) accounts for any events you want to attend.
+    Visit the conference system's #social channel at the time of the event for more details.
+    <P>
+
+    <P>
+    On Wednesday we'll play some board games on <a href="http://boardgamearena.com">Board Game Arena</a>.
+    What you can do in advance: sign up there and have your account name ready. We'll aim for
+    quick and easy games such as 6 nimmt!, Incan Gold, Martian Dice, or other suggestions.
+    <P>
+    On Thursday we'll set up attendee-only matches of <a href="http://rocketleague.com">Rocket League</a>.
+    You'll want to download, install, and try the tutorial beforehand (don't worry, we're all bad). Have your Epic account name handy at the start of the event.
+--->
+
+<script src="../script/luxon.min.js"></script>
+<script>
+  var times = document.getElementsByClassName("time");
+  Array.from(times).forEach(te => {
+    var s = te.attributes["data-day"].value + " " + te.textContent;
+    var t = luxon.DateTime.fromFormat(s, "yyyy-MM-dd H:mm", {zone:"{{page.iana_timezone}}"})
+    var lt = t.toLocal();
+    var lts =  lt.toLocaleString({ weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+    te.setAttribute("data-local-time", lts);
+    te.setAttribute("title", lts);
+  });
+</script>
+</div>
